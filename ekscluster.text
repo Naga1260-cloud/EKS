@@ -1,0 +1,28 @@
+Setup Kubernetes on Amazon EKS
+	
+1.launch amazon linux ec2 machine
+
+2.Install AWS CLI (latest version):
+
+	Follow the installation instructions for AWS CLI.
+3. Setup kubectl: 
+
+a. Download kubectl version 1.21
+
+b. Test kubectl installation:
+
+4.Setup eksctl:
+	 a. Download and extract the latest release
+
+	b. Test eksctl installation:
+
+5.Create IAM Role
+
+6.Create Cluster and Nodes:
+
+7.Delete EKS Cluster:
+
+8.Validate Cluster:
+9.Deploy Nginx Pods:
+
+10.Expose Deployment as Service:
