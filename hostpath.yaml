@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emptydir-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emptydir-app
+  template:
+    metadata:
+      labels:
+        app: emptydir-app
+    spec:
+      containers:
+        - name: emptydir-container
+          image: busybox
+          command: ["sh", "-c", "echo Hello from the hostPath volume! > /data/index.html && sleep 3600"]
+          volumeMounts:
+          - name: hostpath-volume
+            mountPath: /data
+        - name: emptydir-container2
+          image: busybox
+          command: ["sh", "-c", "cat /usr/share/nginx/html/index.html && sleep 3600"] 
+          volumeMounts:
+            - name: hostpath-volume
+              mountPath: /usr/share/nginx/html    
+      volumes:
+        - name: hostpath-volume
+          hostPath:   
+            path: /tmp/hostpath   
+            type: DirectoryOrCreate
+            
