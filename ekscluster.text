@@ -21,6 +21,7 @@ Setup Kubernetes on Amazon EKS
 		sudo mv ./kubectl /usr/local/bin
 
 b. Test kubectl installation:
+	
 	kubectl version --short --client
 
 4.Setup eksctl:
@@ -67,6 +68,7 @@ b. Test kubectl installation:
 		kubectl run tomcat --image=tomcat
 		
 9.Deploy Nginx Pods:
+	 
 	kubectl create deployment demo-nginx --image=nginx --replicas=2 --port=80
 
 	kubectl get all
@@ -74,6 +76,7 @@ b. Test kubectl installation:
 	kubectl get pod
 
 10.Expose Deployment as Service:
+	
 	kubectl expose deployment demo-nginx --port=80 --type=LoadBalancer
 	
 	kubectl get services -o wide
